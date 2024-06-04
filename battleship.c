@@ -55,7 +55,31 @@ void clearInputBuffer() {
 	}
 }
 
+void clearScreen(){
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
+}
+
 void genField(int fieldOf) {
+
+	if(stillPlaying == PLAYING){
+
+		printf("Format: x y   E.g. G 3 or G3\n");
+
+	}else{
+
+		printf("Format: ship1 h G 3\n");
+		printf("          ^   ^ ^ ^\n");
+		printf("          |   | | |\n");
+		printf("      shipID  | | |\n");
+		printf("             alignment(h=horizontally, v=vertically)\n");
+		printf("                | |\n");
+		printf("                y x\n");
+
+	}
 	
 	printf("\n  1 2 3 4 5 6 7 8 9 10");
 	//loop through positions of field array
@@ -185,7 +209,7 @@ void enterShips(int player) {
 
 		//get ship information
 		int returnVal = scanf("%5s %c %c %d", ship, &align, &posYchar, &posX);
-		system("clear");
+		clearScreen();
 
 		//make input fit the format for if statements
 		for (int i = 0; i < 4; i++) {
@@ -428,7 +452,7 @@ void enterShips(int player) {
 		genField(player);
 
 	}
-	system("clear");
+	clearScreen();
 
 	//initialize array contents
 	for (int i = 0; i < 2; i++) {
@@ -449,8 +473,6 @@ int hitCheck(int fieldOf) {
 		int y;
 	
 		printf("Enter your Guess\n");
-		printf("Format: y x\nE.g. A 5\n\n");
-
 		genField(fieldOf);
 
 		if (fieldOf == 0) {
@@ -462,7 +484,7 @@ int hitCheck(int fieldOf) {
 	
 		//get hit location
 		int returnVal = scanf(" %c %d", &posYchar, &x);
-		system("clear");
+		clearScreen();
 
 		posYchar = toupper(posYchar);
 
@@ -526,7 +548,7 @@ int hitCheck(int fieldOf) {
 							}
 						}
 
-						system("clear");
+						clearScreen();
 
 						//check if game ended and return victor
 						if (shipHitCount[fieldOf][0] == 0 && shipHitCount[fieldOf][1] == 0 && shipHitCount[fieldOf][2] == 0 && shipHitCount[fieldOf][3] == 0 && shipHitCount[fieldOf][4] == 0) {
@@ -542,7 +564,7 @@ int hitCheck(int fieldOf) {
 					//if hit on empty field
 					else if (field[fieldOf][x + y - 1] == 0) {
 
-						system("clear"); //probably because of this line
+						clearScreen();
 						//mark position as missed shot
 						field[fieldOf][x + y - 1] = MISS;
 						
@@ -555,17 +577,17 @@ int hitCheck(int fieldOf) {
 					}
 				}
 				else {
-					system("clear");
+					clearScreen();
 					printf("Something went wrong, probably the x coordinate is wrong or out of range. --- Range: 1-10\n\n");
 				}
 			}
 			else {
-				system("clear");
+				clearScreen();
 				printf("Something went wrong, probably the y coordinate is wrong or out of range. --- Range: A-J\n\n");
 			}
 		}
 		else {
-			system("clear");
+			clearScreen();
 			printf("Something went wrong, probably the syntax is wrong. --- E.g. H 3\n\n");
 		}
 	}
@@ -575,27 +597,15 @@ int hitCheck(int fieldOf) {
 }
 
 int main(int* argc, char* argv[]) {
+	
+	clearScreen();
 
 	printf("Please enter your ships: \nPlayer 1\n\n");
-	printf("Format: ship1 h G 3\n");
-	printf("          ^   ^ ^ ^\n");
-	printf("          |   | | |\n");
-	printf("      shipID  | | |\n");
-	printf("             alignment(h=horizontally, v=vertically)\n");
-	printf("                | |\n");
-	printf("                x y\n");
-
+	
 	genField(0);
 	enterShips(0);
 
 	printf("Please enter your ships: \nPlayer 2\n\n");
-	printf("Format: ship1 h G 3\n");
-	printf("          ^   ^ ^ ^\n");
-	printf("          |   | | |\n");
-	printf("      shipID  | | |\n");
-	printf("             alignment(h=horizontally, v=vertically)\n");
-	printf("                | |\n");
-	printf("                x y\n");
 
 	genField(1);
 	enterShips(1);
