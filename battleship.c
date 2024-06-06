@@ -4,7 +4,6 @@
 #include <string.h>
 #include <ctype.h>
 
-
 #define EMPTY 0
 #define PLAYING 10
 #define MISS 10
@@ -67,7 +66,7 @@ void genField(int fieldOf) {
 
 	if(stillPlaying == PLAYING){
 
-		printf("Format: x y   E.g. G 3 or G3\n");
+		printf("Format: y x   E.g. G 3 or G3\n");
 
 	}else{
 
@@ -82,6 +81,7 @@ void genField(int fieldOf) {
 	}
 	
 	printf("\n  1 2 3 4 5 6 7 8 9 10");
+
 	//loop through positions of field array
 	for (int i = 0; i < 100; i++) {
 
@@ -312,7 +312,7 @@ void enterShips(int player) {
 											else {
 												if (field[player][newX + posY - 1] != 0) {
 													overlap = true;
-													printf("Ship's are overlapping\n\n");
+													printf("Ships are overlapping\n\n");
 													i++;
 													break;
 												}
@@ -332,7 +332,7 @@ void enterShips(int player) {
 											else {
 												if (field[player][newX + posY + 10 - 1] != 0) {
 													overlap = true;
-													printf("Ship's are overlapping\n\n");
+													printf("Ships are overlapping\n\n");
 													i++;
 													break;
 												}
@@ -375,7 +375,7 @@ void enterShips(int player) {
 											else {
 												if (field[player][newY + posX - 1] != 0) {
 													overlap = true;
-													printf("Ship's are overlapping\n\n");
+													printf("Ships are overlapping\n\n");
 													i_el = 6;
 													i++;
 												}
@@ -395,7 +395,7 @@ void enterShips(int player) {
 											else {
 												if (field[player][newY + posX - 1 - 1] != 0) {
 													overlap = true;
-													printf("Ship's are overlapping\n\n");
+													printf("Ships are overlapping\n\n");
 													i_noose = 4;
 													i++;
 												}
@@ -634,9 +634,6 @@ int main(int* argc, char* argv[]) {
 
 	printWinMessage(stillPlaying);
 	
-		
-	
-
 }
 
 
