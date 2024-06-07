@@ -472,7 +472,7 @@ int hitCheck(int fieldOf) {
 		int x;
 		int y;
 	
-		printf("Enter your Guess\n");
+		printf("Enter your guess\n");
 		genField(fieldOf);
 
 		if (fieldOf == 0) {
@@ -611,7 +611,7 @@ int main(int* argc, char* argv[]) {
 	enterShips(1);
 
 
-	printf("Let's go!\n\n");
+	printf("Lets go!\n\n");
 
 	stillPlaying = PLAYING;
 	int whichPlayer = 0;
