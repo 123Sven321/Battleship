@@ -18,5 +18,5 @@ Have Fun!
 
 
 DISCLAIMER:
-I have to admit I am not an c expert. It is possible that there are some Bugs I am not aware of.
-This is a project made to better understand c coding and as a code sample for Applications.
+I have to admit I am not a c expert. It is possible that there are some bugs I am not aware of.
+This is a project made to better understand c coding and as a code sample for applications.
