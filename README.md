@@ -3,7 +3,7 @@ Just a little Battleship game (aka. 'Schiffe versenken' in Germany) played in yo
 
 How to play:
 
-1. You have to first compile the c-type file.
+1. You have to first compile the c-type file (recommended) or run the .exe directly (leads to Defender warnings)
 2. Run the executable.
 3. Follow the instructions in your terminal.
    
