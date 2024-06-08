@@ -633,6 +633,10 @@ int main(int* argc, char* argv[]) {
 	}
 
 	printWinMessage(stillPlaying);
+
+
+	printf("Press Enter to exit.");
+	getchar();
 	
 }
 
